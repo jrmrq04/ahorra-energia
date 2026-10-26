@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<!-- DOCTYPE: le dice al navegador que este documento es HTML5 -->
+<html lang="es">
+<!-- html: la etiqueta raiz; lang="es" indica que el contenido esta en espanol -->
+
+<head>
+    <!-- head: informacion SOBRE la pagina (no se ve en la ventana) -->
+    <meta charset="UTF-8">
+    <!-- charset UTF-8: permite tildes, enie y simbolos -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- viewport: la pagina se adapta al ancho del celular -->
+    <title>Factura de mi casa</title>
+    <!-- title: el texto que aparece en la pestana del navegador -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css">
+</head>
+
+<body class="container py-3">
+    <header class="p-4 mb-4 bg-primary text-white rounded">
+        <h1>Factura de mi casa</h1>
+        <p>Historial de la factura de energía y comparación con el consumo calculado de mis equipos. Tarifa: 613 COP por kWh (energía de la factura).</p>
+        <nav class="nav nav-pills">
+            <a class="nav-link text-white" href="index.html">Inicio</a>
+            <a class="nav-link text-white" href="equipos.html">Equipos de mi casa</a>
+            <a class="nav-link text-white" href="registro.html">Registrar un equipo</a>
+            <a class="nav-link text-white" href="mi-factura.html">Mi factura</a>
+            <a class="nav-link text-white" href="encuesta.html">Encuesta</a>
+        </nav>
+    </header>
+
+    <main>
+        <section>
+            <h2>Mi factura</h2>
+            <!-- figure + figcaption: una imagen con su PIE DE FOTO -->
+            <figure>
+                <img class="img-fluid" src="img/mi_factura.jpg"
+                    alt="Foto de la factura de energía: resumen del mes y consumo de los últimos 6 meses" width="500">
+                <figcaption>Factura del período 19/08/2026 al 17/09/2026 (datos personales tapados).</figcaption>
+            </figure>
+
+            <h3>Historial de consumo</h3>
+            <table class="table table-striped table-bordered">
+                <caption>Consumo de los últimos 6 meses y del mes actual, según la gráfica de la factura</caption>
+                <thead>
+                    <tr>
+                        <th>Mes</th>
+                        <th>Consumo (kWh)</th>
+                        <th>Valor pagado (COP)</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr><td>Hace 6 meses</td><td>101</td><td>No aparece en la factura</td></tr>
+                    <tr><td>Hace 5 meses</td><td>105</td><td>No aparece en la factura</td></tr>
+                    <tr><td>Hace 4 meses</td><td>113</td><td>No aparece en la factura</td></tr>
+                    <tr><td>Hace 3 meses</td><td>107</td><td>No aparece en la factura</td></tr>
+                    <tr><td>Hace 2 meses</td><td>112</td><td>No aparece en la factura</td></tr>
+                    <tr><td>Hace 1 mes</td><td>124</td><td>No aparece en la factura</td></tr>
+                    <tr>
+                        <td><strong>Mes actual</strong> (19/08/2026 – 17/09/2026)</td>
+                        <td><strong>131</strong></td>
+                        <td><strong>144.430</strong></td>
+                    </tr>
+                </tbody>
+                <tfoot>
+                    <tr>
+                        <th>Promedio de los 7 meses</th>
+                        <td>113,3</td>
+                        <td>—</td>
+                    </tr>
+                </tfoot>
+            </table>
+            <p>El consumo subió de 101 a 131 kWh: un <strong>30 %</strong> más en el período que muestra la factura.
+                La factura imprime además un promedio de consumo diario de 3,62 kWh.</p>
+
+            <h3>¿En qué se va el pago de este mes?</h3>
+            <table class="table table-striped table-bordered">
+                <caption>Detalle del total a pagar del mes actual</caption>
+                <thead>
+                    <tr>
+                        <th>Concepto</th>
+                        <th>Valor (COP)</th>
+                        <th>Parte del total</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr><td>Energía (131 kWh)</td><td>80.310</td><td>55,6 %</td></tr>
+                    <tr><td>Aseo</td><td>53.620</td><td>37,1 %</td></tr>
+                    <tr><td>Impuesto de alumbrado público</td><td>10.500</td><td>7,3 %</td></tr>
+                    <tr><td>Tasa de seguridad y convivencia ciudadana</td><td>0</td><td>0 %</td></tr>
+                </tbody>
+                <tfoot>
+                    <tr>
+                        <th>Total a pagar</th>
+                        <td>144.430</td>
+                        <td>100 %</td>
+                    </tr>
+                </tfoot>
+            </table>
+            <p>La energía cuesta <strong>613 COP por kWh</strong> (80.310 ÷ 131). Si se reparte todo el total entre
+                los kWh, cada uno sale en unos 1.103 COP, pero el aseo y el alumbrado no bajan aunque se gaste menos
+                energía.</p>
+        </section>
+
+        <section>
+            <h2>Proyección de mis equipos vs. la factura</h2>
+            <p>En <a href="equipos.html">Equipos de mi casa</a> calculé <strong>12,48 kWh</strong> y
+                <strong>7.650 COP</strong> en una semana. Proyectado a un mes de 30 días (semana × 30 ÷ 7):</p>
+
+            <table class="table table-striped table-bordered">
+                <caption>Comparación mensual (solo energía)</caption>
+                <thead>
+                    <tr>
+                        <th>Origen</th>
+                        <th>kWh al mes</th>
+                        <th>Costo de la energía al mes (COP)</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Proyección de mis 4 equipos</td>
+                        <td>53,5</td>
+                        <td>32.787</td>
+                    </tr>
+                    <tr>
+                        <td>Factura (mes actual)</td>
+                        <td>131</td>
+                        <td>80.310</td>
+                    </tr>
+                </tbody>
+                <tfoot>
+                    <tr>
+                        <th>Diferencia (factura − proyección)</th>
+                        <td>77,5</td>
+                        <td>47.523</td>
+                    </tr>
+                </tfoot>
+            </table>
+
+            <h3>¿Por qué no coinciden?</h3>
+            <p>Mis cuatro equipos explican solo el <strong>41 %</strong> de los kWh de la factura (53,5 de 131). Los
+                77,5 kWh restantes salen de lo que no está en la tabla:</p>
+            <ul>
+                <li><strong>Equipos que no medí:</strong> en la foto del televisor se ven un decodificador y un
+                    parlante, y además hay un portátil cerca. También faltan los bombillos, los cargadores y la plancha
+                    u otros electrodomésticos.</li>
+                <li><strong>Consumo en espera:</strong> el decodificador, el parlante y el televisor siguen gastando
+                    energía aunque estén apagados con el control.</li>
+                <li><strong>Horas supuestas:</strong> las horas del ventilador y del televisor son estimaciones; si se
+                    usan más, el cálculo sube.</li>
+                <li><strong>Etiquetas vs. uso real:</strong> la nevera y la lavadora están calculadas con el consumo
+                    de la etiqueta, medido en condiciones de laboratorio. En una casa caliente o con la puerta abierta
+                    muchas veces, la nevera gasta más.</li>
+                <li><strong>Período de facturación:</strong> la factura cubre del 19/08 al 17/09, y el consumo del mes
+                    actual (131 kWh) es el más alto del historial.</li>
+            </ul>
+            <p>Nota: en la primera versión de la tabla usé una nevera de 3500 W. La etiqueta real indica 25,2 kWh al
+                mes (clase A), así que corregí el dato.</p>
+
+            <figure>
+                <img class="img-fluid" src="img/precio_bolsa_2026.png" alt="Gráfica del precio de bolsa por mes en 2026"
+                    width="400">
+                <figcaption>Precio de bolsa de la energía por mes en 2026.</figcaption>
+            </figure>
+        </section>
+
+        <section>
+            <h2>Recomendaciones de ahorro para mi familia</h2>
+            <p>Con base en la tabla de equipos y en la factura (energía a 613 COP por kWh):</p>
+            <ol>
+                <li><strong>Hacer un inventario completo de lo que está conectado.</strong> Faltan 77,5 kWh al mes sin
+                    explicar. Medir con un vatímetro enchufable el decodificador, el parlante, el portátil y los
+                    cargadores, y anotar cuántas horas se usan.</li>
+                <li><strong>Usar el ventilador dos horas menos al día.</strong> Con 90 W son 5,4 kWh menos al mes, unos
+                    3.300 COP. Conviene usarlo solo cuando hay alguien en la habitación y en velocidad baja.</li>
+                <li><strong>Conectar el televisor, el decodificador y el parlante a una regleta con interruptor</strong> y
+                    apagarla al terminar. Así se elimina el consumo en espera de los tres.</li>
+                <li><strong>Mantener la nevera como está.</strong> Es clase A (25,2 kWh/mes), pero es el equipo que más
+                    pesa en la tabla (47 %). Revisar que el sello de la puerta cierre bien, no meter comida caliente y
+                    dejar espacio para que respire por detrás.</li>
+                <li><strong>Vigilar la tendencia.</strong> El consumo subió 30 % en seis meses (de 101 a 131 kWh).
+                    Revisar si se compró o empezó a usarse algún equipo nuevo en ese tiempo.</li>
+            </ol>
+            <p>La lavadora gasta solo 1,3 kWh al mes, por lo que no es prioridad para ahorrar energía.</p>
+        </section>
+    </main>
+
+    <footer class="mt-4 text-muted">
+        <p>Ingeniería Web I · IU Digital de Antioquia · 2026-2</p>
+    </footer>
+</body>
+
+</html>

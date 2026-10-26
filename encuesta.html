@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<!-- DOCTYPE: le dice al navegador que este documento es HTML5 -->
+<html lang="es">
+<!-- html: la etiqueta raiz; lang="es" indica que el contenido esta en espanol -->
+
+<head>
+    <!-- head: informacion SOBRE la pagina (no se ve en la ventana) -->
+    <meta charset="UTF-8">
+    <!-- charset UTF-8: permite tildes, enie y simbolos -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- viewport: la pagina se adapta al ancho del celular -->
+    <title>Encuesta de hábitos de consumo</title>
+    <!-- title: el texto que aparece en la pestana del navegador -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css">
+</head>
+
+<body class="container py-3">
+    <header class="p-4 mb-4 bg-primary text-white rounded">
+        <h1>Encuesta de hábitos de consumo</h1>
+        <p>Cuéntenos cómo usa la energía su familia. Los campos con * son obligatorios.</p>
+        <nav class="nav nav-pills">
+            <a class="nav-link text-white" href="index.html">Inicio</a>
+            <a class="nav-link text-white" href="equipos.html">Equipos de mi casa</a>
+            <a class="nav-link text-white" href="registro.html">Registrar un equipo</a>
+            <a class="nav-link text-white" href="mi-factura.html">Mi factura</a>
+            <a class="nav-link text-white" href="encuesta.html">Encuesta</a>
+        </nav>
+    </header>
+
+    <main>
+        <!-- method="get": los datos viajan en la URL; action apunta a esta misma pagina porque no hay servidor -->
+        <form action="encuesta.html" method="get">
+
+            <!-- fieldset agrupa campos relacionados; legend es su titulo -->
+            <fieldset class="border rounded p-3 mb-3">
+                <legend>Datos de contacto</legend>
+
+                <p>
+                    <label for="nombre">Nombre completo *</label>
+                    <!-- type="text": texto; required: obligatorio -->
+                    <input class="form-control" type="text" id="nombre" name="nombre" required
+                        placeholder="Ej.: Ana Gómez">
+                </p>
+
+                <p>
+                    <label for="correo">Correo electrónico *</label>
+                    <!-- type="email": el navegador valida que tenga formato de correo -->
+                    <input class="form-control" type="email" id="correo" name="correo" required
+                        placeholder="nombre@correo.com">
+                </p>
+            </fieldset>
+
+            <fieldset class="border rounded p-3 mb-3">
+                <legend>Su hogar</legend>
+
+                <p>
+                    <label for="personas">Personas que viven en la casa *</label>
+                    <!-- type="number" con min y max: el navegador no deja enviar valores fuera del rango -->
+                    <input class="form-control" type="number" id="personas" name="personas" min="1" max="15" required>
+                </p>
+
+                <p>
+                    <label for="estrato">Estrato de la vivienda *</label>
+                    <!-- select: lista DESPLEGABLE; cada option es una opcion -->
+                    <select class="form-select" id="estrato" name="estrato" required>
+                        <option value="">Seleccione...</option>
+                        <option value="1">Estrato 1</option>
+                        <option value="2">Estrato 2</option>
+                        <option value="3">Estrato 3</option>
+                        <option value="4">Estrato 4</option>
+                        <option value="5">Estrato 5</option>
+                        <option value="6">Estrato 6</option>
+                    </select>
+                </p>
+
+                <p>
+                    <label for="factura">Valor de la última factura (COP)</label>
+                    <input class="form-control" type="number" id="factura" name="factura" min="0" max="5000000"
+                        step="1000">
+                </p>
+            </fieldset>
+
+            <fieldset class="border rounded p-3 mb-3">
+                <legend>Hábitos de consumo</legend>
+
+                <p>
+                    <label for="ducha">Minutos diarios de ducha por persona</label>
+                    <!-- type="range": barra deslizante; output muestra el valor mientras se mueve -->
+                    <input class="form-range" type="range" id="ducha" name="ducha" min="0" max="30" value="10"
+                        oninput="valorDucha.value = this.value">
+                    <output id="valorDucha">10</output> minutos
+                </p>
+
+                <p>¿Su casa tiene ducha eléctrica? *</p>
+                <!-- radio: se puede elegir SOLO UNA opcion del grupo (mismo name) -->
+                <input type="radio" id="ducha-si" name="ducha_electrica" value="si" required>
+                <label for="ducha-si">Sí</label>
+                <input type="radio" id="ducha-no" name="ducha_electrica" value="no">
+                <label for="ducha-no">No</label>
+
+                <p class="mt-3">¿Cuándo se concentra el mayor consumo en su casa? *</p>
+                <input type="radio" id="m-dia" name="momento" value="dia" required>
+                <label for="m-dia">De día</label>
+                <input type="radio" id="m-tarde" name="momento" value="tarde">
+                <label for="m-tarde">En la tarde</label>
+                <input type="radio" id="m-noche" name="momento" value="noche">
+                <label for="m-noche">De noche (6 a 9 pm, la hora más cara)</label>
+            </fieldset>
+
+            <fieldset class="border rounded p-3 mb-3">
+                <legend>Acciones de ahorro</legend>
+                <p>¿Cuáles de estas acciones practica? (puede marcar varias)</p>
+                <!-- checkbox: casilla que se marca o no; varias pueden compartir name -->
+                <p>
+                    <input type="checkbox" id="a-bombillos" name="acciones" value="bombillos_led">
+                    <label for="a-bombillos">Uso bombillos LED</label><br>
+                    <input type="checkbox" id="a-desconecta" name="acciones" value="desconecta">
+                    <label for="a-desconecta">Desconecto los equipos que no uso</label><br>
+                    <input type="checkbox" id="a-plancha" name="acciones" value="plancha_junta">
+                    <label for="a-plancha">Plancho toda la ropa en una sola sesión</label><br>
+                    <input type="checkbox" id="a-ninguna" name="acciones" value="ninguna">
+                    <label for="a-ninguna">Ninguna por ahora</label>
+                </p>
+
+                <p>
+                    <input type="checkbox" id="acepto" name="acepto" value="si" required>
+                    <label for="acepto">Acepto que mis respuestas se usen para el trabajo de clase *</label>
+                </p>
+
+                <p>
+                    <label for="comentarios">¿Qué podría cambiar su familia para gastar menos energía?</label><br>
+                    <!-- textarea: texto de VARIAS lineas -->
+                    <textarea class="form-control" id="comentarios" name="comentarios" rows="4" cols="40"
+                        placeholder="Escriba sus ideas"></textarea>
+                </p>
+            </fieldset>
+
+            <!-- button type="submit": ENVIA el formulario; type="reset": lo borra -->
+            <button class="btn btn-primary" type="submit">Enviar encuesta</button>
+            <button class="btn btn-secondary" type="reset">Borrar</button>
+        </form>
+    </main>
+
+    <footer class="mt-4 text-muted">
+        <p>Ingeniería Web I · IU Digital de Antioquia · 2026-2</p>
+    </footer>
+</body>
+
+</html>
